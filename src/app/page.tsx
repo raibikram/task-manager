@@ -19,11 +19,16 @@ export default function Page() {
   const visibleTasks = useMemo(() => {
     let list = [...tasks];
     if (filter !== "all") list = list.filter((t) => t.status === filter);
-    if (debouncedSearch) list = list.filter((t) => t.title.toLowerCase().includes(debouncedSearch.toLowerCase()));
+    if (debouncedSearch)
+      list = list.filter((t) =>
+        t.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+      );
     list.sort((a, b) => {
       const valA = sortBy === "title" ? a.title : a.dueDate || "";
       const valB = sortBy === "title" ? b.title : b.dueDate || "";
-      return sortOrder === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
+      return sortOrder === "asc"
+        ? valA.localeCompare(valB)
+        : valB.localeCompare(valA);
     });
     return list;
   }, [tasks, filter, debouncedSearch, sortBy, sortOrder]);
@@ -41,7 +46,9 @@ export default function Page() {
         />
         <select
           value={filter}
-          onChange={(e) => setFilter(e.target.value as any)}
+          onChange={(e) =>
+            setFilter(e.target.value as "all" | "pending" | "done")
+          }
           className="p-2 border rounded-md"
         >
           <option value="all">All</option>
@@ -50,7 +57,7 @@ export default function Page() {
         </select>
         <select
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as any)}
+          onChange={(e) => setSortBy(e.target.value as "title" | "date")}
           className="p-2 border rounded-md"
         >
           <option value="date">Sort by Date</option>
@@ -63,7 +70,14 @@ export default function Page() {
           {sortOrder === "asc" ? "↑" : "↓"}
         </button>
         <button
-          onClick={() => setEditingTask({ id: "", title: "", dueDate: "", status: "pending" })}
+          onClick={() =>
+            setEditingTask({
+              id: "",
+              title: "",
+              dueDate: "",
+              status: "pending",
+            })
+          }
           className="px-4 py-2 bg-blue-600 text-white rounded-md"
         >
           Add Task

@@ -1,4 +1,5 @@
-import { Task } from "@/components/TaskForm";
+import { Task } from "@/components/TaskFormTypes";
+
 
 const KEY = "tasks";
 
