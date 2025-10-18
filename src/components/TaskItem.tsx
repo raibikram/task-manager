@@ -1,6 +1,6 @@
 "use client";
 import React, { memo } from "react";
-import { Task } from "./TaskFormTypes";
+import { Task } from "../types/TaskTypes";
 
 interface Props {
   task: Task;

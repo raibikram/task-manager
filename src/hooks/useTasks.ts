@@ -31,7 +31,7 @@
 // };
 import { useState, useEffect, useCallback } from "react";
 import * as api from "@/lib/storage";
-import { Task } from "@/components/TaskFormTypes";
+import { Task } from "@/types/TaskTypes";
 
 
 export const useTasks = () => {

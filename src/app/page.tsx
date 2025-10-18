@@ -4,7 +4,7 @@ import { TaskFormModal } from "@/components/TaskForm";
 import { TaskItem } from "@/components/TaskItem";
 import { useTasks } from "@/hooks/useTasks";
 import { useDebounce } from "@/hooks/useDebounce";
-import { Task } from "@/components/TaskFormTypes";
+import { Task } from "@/types/TaskTypes";
 
 export default function Page() {
   const { tasks, addTask, updateTask, deleteTask, toggleStatus } = useTasks();

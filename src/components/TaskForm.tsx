@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Task } from "./TaskFormTypes";
+import { Task } from "../types/TaskTypes";
 
 interface Props {
   task?: Task; // If editing
