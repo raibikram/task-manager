@@ -84,17 +84,21 @@ export default function Page() {
         </button>
       </div>
 
-      <ul className="space-y-2">
-        {visibleTasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            onEdit={setEditingTask}
-            onDelete={deleteTask}
-            onToggle={toggleStatus}
-          />
-        ))}
-      </ul>
+      {visibleTasks.length ? (
+        <ul className="space-y-2">
+          {visibleTasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              onEdit={setEditingTask}
+              onDelete={deleteTask}
+              onToggle={toggleStatus}
+            />
+          ))}
+        </ul>
+      ) : (
+    <p className="text-center text-gray-500 mt-4">No tasks found.</p>
+      )}
 
       {editingTask && (
         <TaskFormModal
