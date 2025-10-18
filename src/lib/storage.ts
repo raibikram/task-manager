@@ -11,7 +11,7 @@
 //   localStorage.setItem(KEY, JSON.stringify(tasks));
 // };
 
-import { Task } from "@/components/TaskFormTypes";
+import { Task } from "@/types/TaskTypes";
 
 const STORAGE_KEY = "tasks";
 
