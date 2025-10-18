@@ -14,7 +14,7 @@ export default function Page() {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
-  const debouncedSearch = useDebounce(search, 300);
+  const debouncedSearch = useDebounce(search, 500);
 
   const visibleTasks = useMemo(() => {
     let list = [...tasks];
